@@ -1,13 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { Header, Footer, Container } from "./components";
 
 function App() {
   return (
-    <div className="">
-      <h1 className="text-4xl font-bold text-link">
-        EXPENSE
-      </h1>
-      <Outlet />
+    <div className="w-full min-h-screen flex flex-col justify-between items-center">
+      <Header />
+      <Container>
+        <Outlet />
+      </Container>
+      <Footer />
     </div>
   );
 }

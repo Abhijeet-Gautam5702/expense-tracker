@@ -3,9 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     borderRadius: {
-      small: "8px",
-      med: "10px",
-      large: "13px",
+      small: "5px",
+      med: "6px",
+      large: "8px",
     },
     fontWeight: {
       thin: "100",
@@ -26,6 +26,17 @@ export default {
       secondary: "#B9B9B9",
       tertiary: "#A3A3A3",
       link: "#FFF500",
+    },
+    fontSize: {
+      "sm-1": "18.75px",
+      "sm-2": "21.875px",
+      "sm-3": "23.125px",
+      "md-1": "25px",
+      "md-2": "28.125px",
+      "md-3": "30px",
+      "lg-1": "37.5px",
+      "lg-2": "43.75px",
+      "lg-3": "56.25px",
     },
     extend: {},
   },
