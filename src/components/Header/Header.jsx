@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
-import LogoutButton from "./LogoutButton";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 
@@ -9,6 +8,11 @@ function Header() {
 
   // local state
   const [navItems, setNavItems] = useState([
+    {
+      name: "Home",
+      path: "/",
+      active: !authStatus,
+    },
     {
       name: "Signup",
       path: "/signup",

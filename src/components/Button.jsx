@@ -3,13 +3,13 @@ import React from "react";
 function Button({
   buttonText,
   className = "",
-  width = "",
+  width = "w-full",
   type = "button",
-  fill,
 }) {
   return (
     <button
-      className={`rounded-small font-medium ${width} ${className} transition-all hover:scale-110 duration-150 `}
+      type={type}
+      className={`rounded-small font-medium ${width} ${className} bg-accent text-background font-regular text-sm-1 px-5 py-4`}
     >
       {buttonText}
     </button>

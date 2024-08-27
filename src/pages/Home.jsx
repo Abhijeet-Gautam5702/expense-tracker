@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Home() {
+  const authStatus = useSelector((state) => state.auth.loginStatus);
+  // local state
+  const [isLoggedIn, setIsLoggedIn] = useState(authStatus);
+
+  useEffect(() => {
+    setIsLoggedIn(authStatus);
+  }, [authStatus]);
+
   return (
     <div className="w-full flex flex-col items-center justify-center gap-[4rem]">
       {/* Welcome Text */}
@@ -14,17 +23,19 @@ function Home() {
         </h1>
       </div>
       {/* Login prompt */}
-      <p className="text-sm-1">
-        Please{" "}
-        <Link to={"/login"} className="text-accent hover:underline">
-          login
-        </Link>{" "}
-        or{" "}
-        <Link to={"/signup"} className="text-accent hover:underline">
-          create an account
-        </Link>{" "}
-        to continue
-      </p>
+      {!isLoggedIn && (
+        <p className="text-sm-1">
+          Please{" "}
+          <Link to={"/login"} className="text-accent hover:underline">
+            login
+          </Link>{" "}
+          or{" "}
+          <Link to={"/signup"} className="text-accent hover:underline">
+            create an account
+          </Link>{" "}
+          to continue
+        </p>
+      )}
     </div>
   );
 }

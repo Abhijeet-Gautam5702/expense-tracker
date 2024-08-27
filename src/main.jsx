@@ -16,6 +16,7 @@ import {
   Login,
   Signup,
 } from "./pages";
+import { Protected } from "./layouts";
 
 const router = createBrowserRouter([
   {
@@ -36,26 +37,45 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <Protected authentication>
+            <Dashboard />
+          </Protected>
+        ),
       },
       {
         path: "/add-expense",
-        element: <AddExpense />,
+        element: (
+          <Protected authentication>
+            <AddExpense />
+          </Protected>
+        ),
       },
       {
         path: "/edit-expense/:expenseId",
-        element: <EditExpense />,
+        element: (
+          <Protected authentication>
+            <EditExpense />
+          </Protected>
+        ),
       },
       {
         path: "/all-expenses",
-        element: <AllExpenses />,
+        element: (
+          <Protected authentication>
+            <AllExpenses />
+          </Protected>
+        ),
       },
       {
         path: "/category-expenses/:categoryId",
-        element: <CategoryExpenses />,
+        element: (
+          <Protected authentication>
+            <CategoryExpenses />
+          </Protected>
+        ),
       },
     ],
-    errorElement: <Error />,
   },
 ]);
 
