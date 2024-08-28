@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import Input from "./Input";
 import Container from "./Container";
 import Select from "./Select";
+import Loader from "./Loader";
 
 export {
   Header,
@@ -18,4 +19,5 @@ export {
   Input,
   Container,
   Select,
+  Loader
 };

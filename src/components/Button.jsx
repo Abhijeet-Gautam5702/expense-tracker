@@ -5,11 +5,14 @@ function Button({
   className = "",
   width = "w-full",
   type = "button",
+  ...props
 }) {
   return (
     <button
+    
       type={type}
       className={`rounded-small font-medium ${width} ${className} bg-accent text-background font-regular text-sm-1 px-5 py-4`}
+      {...props}
     >
       {buttonText}
     </button>
