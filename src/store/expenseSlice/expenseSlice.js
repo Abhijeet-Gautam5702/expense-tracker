@@ -1,11 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-// Note: Ideally we should have created two different slices for auth and expenses each
 const initialState = {
-  auth: {
-    loginStatus: false,
-    userData: {},
-  },
   expenses: [
     {
       $id: 1,
@@ -16,23 +11,10 @@ const initialState = {
   ],
 };
 
-const slice = createSlice({
-  name: "slice",
+const expenseSlice = createSlice({
+  name: "expense",
   initialState,
   reducers: {
-    // auth reducers
-
-    logout: (state, action) => {
-      state.auth.loginStatus = false;
-      state.auth.userData = {};
-    },
-    login: (state, action) => {
-      state.auth.loginStatus = true;
-      state.auth.userData = action.payload;
-    },
-
-    // expenses reducers
-
     updateExpense: (state, action) => {
       const expenseId = action.payload.$id; // Note: Since appwrite gives the IDs in "$id" format, so we are storing the IDs in the same format here as well, just to maintain consistency in the syntax/code.
       state.expenses = state.expenses.map((expense) => {
@@ -61,6 +43,7 @@ const slice = createSlice({
   },
 });
 
-export const { logout, login, updateExpense, deleteExpense } = slice.actions;
+export const { updateExpense, deleteAllExpenses, deleteExpense } =
+  expenseSlice.actions;
 
-export const sliceReducer = slice.reducer;
+export const expenseReducer = expenseSlice.reducer;
