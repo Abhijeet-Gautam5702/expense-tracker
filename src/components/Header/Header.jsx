@@ -42,11 +42,6 @@ function Header() {
       path: "/add-expense",
       active: authStatus,
     },
-    {
-      name: "Edit Expense",
-      path: "/edit-expense",
-      active: authStatus,
-    },
   ]);
 
   // change the navItems whenever authStatus changes
@@ -80,11 +75,6 @@ function Header() {
       {
         name: "Add Expense",
         path: "/add-expense",
-        active: authStatus,
-      },
-      {
-        name: "Edit Expense",
-        path: "/edit-expense/:expenseId",
         active: authStatus,
       },
     ]);

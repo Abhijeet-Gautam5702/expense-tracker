@@ -28,6 +28,7 @@ export default {
       link: "#FFF500",
     },
     fontSize: {
+      "sm-0":"12px",
       "sm-1": "18.75px",
       "sm-2": "21.875px",
       "sm-3": "23.125px",
