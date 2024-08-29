@@ -4,6 +4,8 @@ import { Header, Footer, Container } from "./components";
 import authService from "./appwrite/auth";
 import { useDispatch } from "react-redux";
 import { login as storeLogin } from "./store/authSlice/authSlice";
+import { populateStoreWithExpenses } from "./store/expenseSlice/expenseSlice";
+import databaseService from "./appwrite/database";
 
 function App() {
   const dispatch = useDispatch();
@@ -14,6 +16,10 @@ function App() {
       try {
         const userData = await authService.getLoggedInUser();
         if (userData) {
+          const expenses = await databaseService.getAllExpenses(userData.$id);
+          if (expenses) {
+            dispatch(populateStoreWithExpenses({ expenses }));
+          }
           dispatch(storeLogin({ userData }));
         }
       } catch (error) {
