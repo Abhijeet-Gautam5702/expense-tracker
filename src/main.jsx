@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: (
-          <Protected authentication={false}>
+          <Protected authentication={true}>
             <Dashboard />
           </Protected>
         ),

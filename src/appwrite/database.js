@@ -14,12 +14,13 @@ class DatabaseService {
   }
 
   // methods
-  
-  async getAllExpenses() {
+
+  async getAllExpenses(queries = []) {
     try {
       const response = await this.databases.listDocuments(
         config.appwrite.databaseId,
-        config.appwrite.collectionId
+        config.appwrite.collectionId,
+        queries
       );
       if (!response) {
         return null;
