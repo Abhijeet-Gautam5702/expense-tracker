@@ -15,6 +15,9 @@ const expenseSlice = createSlice({
   name: "expense",
   initialState,
   reducers: {
+    populateStoreWithExpenses: (state, action) => {
+      state.expenses = action.payload.expenses;
+    },
     updateExpense: (state, action) => {
       const expenseId = action.payload.$id; // Note: Since appwrite gives the IDs in "$id" format, so we are storing the IDs in the same format here as well, just to maintain consistency in the syntax/code.
       state.expenses = state.expenses.map((expense) => {
@@ -43,7 +46,11 @@ const expenseSlice = createSlice({
   },
 });
 
-export const { updateExpense, deleteAllExpenses, deleteExpense } =
-  expenseSlice.actions;
+export const {
+  populateStoreWithExpenses,
+  updateExpense,
+  deleteAllExpenses,
+  deleteExpense,
+} = expenseSlice.actions;
 
 export const expenseReducer = expenseSlice.reducer;
