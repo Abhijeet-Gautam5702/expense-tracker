@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { login as storeLogin } from "../store/authSlice/authSlice.js";
 
 function Signup() {
+  // local state
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authStatus = useSelector((state) => state.auth.loginStatus);
@@ -29,6 +32,7 @@ function Signup() {
 
   const handleSignup = async (data) => {
     clearErrors(); // clear all errors before submission
+    setLoading(true);
     try {
       console.log("try block started");
       const session = await authService.userSignup({
@@ -59,12 +63,14 @@ function Signup() {
         type: "manual",
         message: "User signup failed!",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className=" w-2/5 mx-auto flex flex-col items-center justify-start">
-      {isSubmitting === true ? (
+      {isLoading === true ? (
         <Loader />
       ) : (
         <>
@@ -102,7 +108,7 @@ function Signup() {
               {...register("password", { required: true })}
             />
             <Button
-              // disabled={isSubmitting ? true : false}
+              disabled={isSubmitting ? true : false}
               className="mt-4"
               type="submit"
               buttonText="Create account"

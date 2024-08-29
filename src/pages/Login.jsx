@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Input, Button, Loader } from "../components";
 import { Link } from "react-router-dom";
@@ -8,6 +8,9 @@ import { useNavigate } from "react-router-dom";
 import { login as storeLogin } from "../store/authSlice/authSlice.js";
 
 function Login() {
+  // local state
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const authStatus = useSelector((state) => state.auth.loginStatus);
@@ -27,6 +30,7 @@ function Login() {
 
   const handleLogin = async (data) => {
     clearErrors();
+    setLoading(true);
     try {
       const session = await authService.userLogin({
         email: data.email,
@@ -56,12 +60,14 @@ function Login() {
         type: "manual",
         message: "User login failed!",
       });
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="mb-10 w-2/5 mx-auto flex flex-col items-center justify-start">
-      {isSubmitting === true ? (
+      {loading === true ? (
         <Loader />
       ) : (
         <>
