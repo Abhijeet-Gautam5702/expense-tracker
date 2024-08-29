@@ -15,7 +15,7 @@ function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const username = useSelector((state) => state.auth.userData.name);
+  const userData = useSelector((state) => state.auth.userData);
   const dispatch = useDispatch();
 
   const categories = [
@@ -40,7 +40,7 @@ function Dashboard() {
     // fetch the expenses data from DB and populate the local state as well as store
     (async () => {
       try {
-        const expensesFromDB = await databaseService.getAllExpenses();
+        const expensesFromDB = await databaseService.getAllExpenses(userData.$id);
 
         if (expensesFromDB) {
           // populate the store
@@ -92,7 +92,7 @@ function Dashboard() {
           {/* Welcome Text */}
           <div className="flex flex-col justify-start gap-3 items-start leading-snug">
             <h1 className="text-lg-2 font-semibold">
-              Welcome <span className="text-accent">{username}</span>{" "}
+              Welcome <span className="text-accent">{userData.name}</span>{" "}
             </h1>
             <h2 className="text-sm-2 font-regular">
               You have spent a total of{" "}
