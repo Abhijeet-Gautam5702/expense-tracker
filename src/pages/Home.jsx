@@ -1,15 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { Loader } from "../components";
 
 function Home() {
   const authStatus = useSelector((state) => state.auth.loginStatus);
   // local state
   const [isLoggedIn, setIsLoggedIn] = useState(authStatus);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setIsLoggedIn(authStatus);
+    setLoading(false);
   }, [authStatus]);
+
+  if (loading) {
+    return (
+      <div className="w-full flex flex-col items-center justify-center gap-[4rem]">
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className="w-full flex flex-col items-center justify-center gap-[4rem]">
