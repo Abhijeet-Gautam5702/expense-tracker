@@ -17,7 +17,7 @@ function Input({ type = "text", label, placeholder, ...props }, ref) {
   const id = useId();
 
   return (
-    <div className="w-full">
+    <div className="w-full space-y-1">
       <label htmlFor={id} className="text-primary font-regular text-sm-1">
         {label}
       </label>
