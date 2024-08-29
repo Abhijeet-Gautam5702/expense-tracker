@@ -4,11 +4,13 @@ import { useForm } from "react-hook-form";
 import databaseService from "../appwrite/database";
 import { useDispatch, useSelector } from "react-redux";
 import { addExpense as addExpenseToStore } from "../store/expenseSlice/expenseSlice";
+import { useNavigate } from "react-router-dom";
 
 function AddExpense() {
   // local state
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
   const dispatch = useDispatch();
   const {
@@ -36,12 +38,14 @@ function AddExpense() {
         category: data.category,
         userId: userData.$id,
       });
-      console.log(expense);
+      // console.log(expense);
 
       if (expense) {
         reset(); //reset the form
 
         dispatch(addExpenseToStore({ expense })); // modify the store
+
+        navigate("/dashboard"); // navigate to the dashboard
       }
     } catch (error) {
     } finally {
