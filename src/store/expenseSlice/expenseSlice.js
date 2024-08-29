@@ -1,14 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  expenses: [
-    {
-      $id: 1,
-      name: "",
-      amount: 0.0,
-      category: "",
-    },
-  ],
+  expenses: [],
 };
 
 const expenseSlice = createSlice({
@@ -17,6 +10,9 @@ const expenseSlice = createSlice({
   reducers: {
     populateStoreWithExpenses: (state, action) => {
       state.expenses = action.payload.expenses;
+    },
+    addExpense: (state, action) => {
+      state.expenses.push(action.payload.expense);
     },
     updateExpense: (state, action) => {
       const expenseId = action.payload.$id; // Note: Since appwrite gives the IDs in "$id" format, so we are storing the IDs in the same format here as well, just to maintain consistency in the syntax/code.
@@ -51,6 +47,7 @@ export const {
   updateExpense,
   deleteAllExpenses,
   deleteExpense,
+  addExpense,
 } = expenseSlice.actions;
 
 export const expenseReducer = expenseSlice.reducer;
