@@ -1,4 +1,4 @@
-import { Client, Databases, ID } from "appwrite";
+import { Client, Databases, ID,Query } from "appwrite";
 import config from "../config/config";
 
 class DatabaseService {
@@ -15,12 +15,12 @@ class DatabaseService {
 
   // methods
 
-  async getAllExpenses(queries = []) {
+  async getAllExpenses(userId) {
     try {
       const response = await this.databases.listDocuments(
         config.appwrite.databaseId,
         config.appwrite.collectionId,
-        queries
+        [Query.equal("userId", [`${userId}`])]
       );
       if (!response) {
         return null;
