@@ -4,11 +4,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { logout as storeLogout } from "../../store/authSlice/authSlice";
 import { NavLink, useNavigate } from "react-router-dom";
 import authService from "../../appwrite/auth";
+import { deleteAllExpenses } from "../../store/expenseSlice/expenseSlice";
+import Loader from "../Loader";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.loginStatus);
   const dispatch = useDispatch();
-  const navigate=useNavigate();
+  const navigate = useNavigate();
 
   // local state
   const [navItems, setNavItems] = useState([
@@ -85,7 +87,9 @@ function Header() {
       const response = await authService.userLogout();
       if (response) {
         dispatch(storeLogout());
+        dispatch(deleteAllExpenses());
       }
+
       navigate("/");
     } catch (error) {
       console.log(`User logout failed:: Error = ${error.message}`);
@@ -128,7 +132,7 @@ function Header() {
       {/* Logout Button */}
       {authStatus && (
         <div
-          className="px-4 py-2 text-sm-1 text-primary cursor-pointer"
+          className="px-4 py-2 text-sm-0 text-background bg-accent rounded-small cursor-pointer hover:bg-accent/90"
           onClick={handleLogout}
         >
           Logout

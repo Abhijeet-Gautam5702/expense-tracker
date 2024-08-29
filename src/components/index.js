@@ -19,5 +19,5 @@ export {
   Input,
   Container,
   Select,
-  Loader
+  Loader,
 };

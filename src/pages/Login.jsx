@@ -37,14 +37,14 @@ function Login() {
         password: data.password,
       });
       if (session) {
-        console.log("session = ", session); // DEBUG
+        // console.log("session = ", session); // DEBUG
 
         // reset the form back to the default values
         reset();
 
         const userData = await authService.getLoggedInUser();
 
-        console.log(userData); // DEBUG
+        // console.log(userData); // DEBUG
 
         if (userData) {
           // change authStatus of the store
