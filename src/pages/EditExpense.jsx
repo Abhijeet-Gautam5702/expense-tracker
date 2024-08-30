@@ -8,7 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function EditExpense() {
   // local state
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isAuthorized, setIsAuthorized] = useState(false);
 
   const dispatch = useDispatch();
@@ -63,6 +63,8 @@ function EditExpense() {
         console.log(
           `Could not check if user is authorized for editing or not | Error = ${error.message}`
         );
+      } finally {
+        setLoading(false);
       }
     })();
   }, []);
@@ -90,61 +92,63 @@ function EditExpense() {
       setLoading(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="w-2/5 mx-auto flex flex-col items-center justify-start">
+        <Loader />
+      </div>
+    );
+  }
   return (
     <div className=" w-2/5 mx-auto flex flex-col items-center justify-start">
-      {loading === true ? (
-        <Loader />
-      ) : (
-        <>
-          {/* Headline */}
-          <h1 className="text-primary font-medium text-lg-1 mb-10">
-            Edit your expense
-          </h1>
-          {/* Form */}
-          <form
-            onSubmit={handleSubmit(editExpense)}
-            className="w-full flex flex-col justify-start items-center gap-4"
-          >
-            <Input
-              label={"Expense name"}
-              placeholder={"e.g. Lunch at the Wendy's"}
-              type="text"
-              {...register("name", { required: true })}
-            />
-            <Input
-              label={"Amount ($)"}
-              placeholder={"e.g. 1200"}
-              type="number"
-              step="any"
-              {...register("amount", { required: true })}
-            />
-            <Select
-              label="Expense category"
-              options={[
-                {
-                  category: "Food and Leisure",
-                  categoryId: "food-and-leisure",
-                },
-                {
-                  category: "Bills and Recharges",
-                  categoryId: "bills-and-recharges",
-                },
-                {
-                  category: "Other Expenses",
-                  categoryId: "other-expenses",
-                },
-              ]}
-              {...register("category", { required: true })}
-            />
-            <Button
-              disabled={isSubmitting ? true : false}
-              type="submit"
-              className="mt-4"
-              buttonText="Add expense"
-            />
-          </form>
-        </>
-      )}
+      {/* Headline */}
+      <h1 className="text-primary font-medium text-lg-1 mb-10">
+        Edit your expense
+      </h1>
+      {/* Form */}
+      <form
+        onSubmit={handleSubmit(editExpense)}
+        className="w-full flex flex-col justify-start items-center gap-4"
+      >
+        <Input
+          label={"Expense name"}
+          placeholder={"e.g. Lunch at the Wendy's"}
+          type="text"
+          {...register("name", { required: true })}
+        />
+        <Input
+          label={"Amount ($)"}
+          placeholder={"e.g. 1200"}
+          type="number"
+          step="any"
+          {...register("amount", { required: true })}
+        />
+        <Select
+          label="Expense category"
+          options={[
+            {
+              category: "Food and Leisure",
+              categoryId: "food-and-leisure",
+            },
+            {
+              category: "Bills and Recharges",
+              categoryId: "bills-and-recharges",
+            },
+            {
+              category: "Other Expenses",
+              categoryId: "other-expenses",
+            },
+          ]}
+          {...register("category", { required: true })}
+        />
+        <Button
+          disabled={isSubmitting ? true : false}
+          type="submit"
+          className="mt-4"
+          buttonText="Add expense"
+        />
+      </form>
     </div>
   );
 }
