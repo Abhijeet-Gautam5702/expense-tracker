@@ -4,14 +4,21 @@ import { Link } from "react-router-dom";
 import { Loader } from "../components";
 
 function Home() {
-  const authStatus = useSelector((state) => state.auth.loginStatus);
   // local state
-  const [isLoggedIn, setIsLoggedIn] = useState(authStatus);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loading, setLoading] = useState(true);
 
+  const authStatus = useSelector((state) => state.auth.loginStatus);
+
   useEffect(() => {
-    setIsLoggedIn(authStatus);
-    setLoading(false);
+    (async () => {
+      try {
+        setIsLoggedIn(authStatus);
+      } catch (error) {
+      } finally {
+        setLoading(false);
+      }
+    })();
   }, [authStatus]);
 
   if (loading) {

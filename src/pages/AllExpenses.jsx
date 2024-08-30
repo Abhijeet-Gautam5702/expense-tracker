@@ -20,7 +20,11 @@ function AllExpenses() {
   useEffect(() => {
     (async () => {
       try {
-        setExpenseList(expenses);
+        // Note: array is reversed so that the latest entry is at the top
+        // Array.from(arrName).reverse() creates a new reversed array
+        // arrName.reverse() reverses the original array
+        // Note: We cannot mutate the original state-expense-variable
+        setExpenseList(Array.from(expenses).reverse());
       } catch (error) {
         console.log(
           `Error fetching the list of expenses | Error = ${error.message}`
