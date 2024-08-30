@@ -10,13 +10,14 @@ import databaseService from "./appwrite/database";
 function App() {
   const dispatch = useDispatch();
 
-  // Whenever App is loaded => populate store.auth if the user is logged in
+  // Whenever App is loaded => populate store with auth & expense details
   useEffect(() => {
     (async () => {
       try {
         const userData = await authService.getLoggedInUser();
         if (userData) {
           const expenses = await databaseService.getAllExpenses(userData.$id);
+          expenses.reverse(); // reverse the list so that the latest expense is at the top
           if (expenses) {
             dispatch(populateStoreWithExpenses({ expenses }));
           }

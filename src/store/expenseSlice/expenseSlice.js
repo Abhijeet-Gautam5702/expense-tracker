@@ -15,17 +15,17 @@ const expenseSlice = createSlice({
       state.expenses.push(action.payload.expense);
     },
     updateExpense: (state, action) => {
-      const expenseId = action.payload.$id; // Note: Since appwrite gives the IDs in "$id" format, so we are storing the IDs in the same format here as well, just to maintain consistency in the syntax/code.
+      const expenseId = action.payload.expense.$id; // Note: Since appwrite gives the IDs in "$id" format, so we are storing the IDs in the same format here as well, just to maintain consistency in the syntax/code.
       state.expenses = state.expenses.map((expense) => {
         if (expense.$id === expenseId) {
-          const updateExpense = {
+          const updatedExpense = {
             ...expense, // spread the members of the original expense object.
-            ...action.payload, // spread the members of the expense object (containing only those properties that need to be changed)
+            ...action.payload.expense, // spread the members of the expense object (containing only those properties that need to be changed)
             /*
                 NOTE: The properties from action.payload will override those in the original expense, hence updation will take place.
             */
           };
-          return updateExpense;
+          return updatedExpense;
         }
         return expense;
       });

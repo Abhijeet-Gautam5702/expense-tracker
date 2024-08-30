@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
-import databaseService from "../appwrite/database";
 
 function CategoryCard({ id, name, amount, path, ...props }) {
 

@@ -8,10 +8,11 @@ function Protected({ authentication, children }) {
   const authStatus = useSelector((state) => state.auth.loginStatus);
 
   useEffect(() => {
+    // console.log(`useEffect of Protected | authStatus = ${authStatus}`)
     if (authentication && !authStatus) {
       navigate("/");
     }
-  }, [authStatus]);
+  }, []);
 
   return <>{children}</>;
 }

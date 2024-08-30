@@ -54,7 +54,7 @@ const router = createBrowserRouter([
       {
         path: "/edit-expense/:expenseId",
         element: (
-          <Protected authentication>
+          <Protected authentication={true}>
             <EditExpense />
           </Protected>
         ),
