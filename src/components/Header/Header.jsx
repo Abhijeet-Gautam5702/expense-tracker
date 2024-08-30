@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import Logo from "./Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { logout as storeLogout } from "../../store/authSlice/authSlice";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import authService from "../../appwrite/auth";
 import { deleteAllExpenses } from "../../store/expenseSlice/expenseSlice";
-import Loader from "../Loader";
 
 function Header() {
   const authStatus = useSelector((state) => state.auth.loginStatus);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+  // console.log(location);
 
   // local state
   const [navItems, setNavItems] = useState([]);
@@ -50,10 +51,14 @@ function Header() {
         active: authStatus,
       },
     ]);
-    // Artifically giving a delay of 2s
-    setTimeout(() => {
+    // Artifically giving a delay of 2s if the user is currently on Home Page
+    if (location.pathname === "/") {
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
+    } else {
       setIsLoading(false);
-    }, 2000);
+    }
   }, [authStatus]);
 
   const handleLogout = async () => {

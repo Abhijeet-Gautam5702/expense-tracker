@@ -70,7 +70,7 @@ function Signup() {
 
   return (
     <div className=" w-2/5 mx-auto flex flex-col items-center justify-start">
-      {isLoading === true ? (
+      {loading === true ? (
         <Loader />
       ) : (
         <>
