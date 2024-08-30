@@ -13,38 +13,8 @@ function Header() {
   const navigate = useNavigate();
 
   // local state
-  const [navItems, setNavItems] = useState([
-    {
-      name: "Dashboard",
-      path: "/dashboard",
-      active: true,
-    },
-    {
-      name: "Home",
-      path: "/",
-      active: true,
-    },
-    {
-      name: "Signup",
-      path: "/signup",
-      active: !authStatus,
-    },
-    {
-      name: "Login",
-      path: "/login",
-      active: !authStatus,
-    },
-    {
-      name: "All Expenses",
-      path: "/all-expenses",
-      active: authStatus,
-    },
-    {
-      name: "Add Expense",
-      path: "/add-expense",
-      active: authStatus,
-    },
-  ]);
+  const [navItems, setNavItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // change the navItems whenever authStatus changes
   useEffect(() => {
@@ -80,6 +50,10 @@ function Header() {
         active: authStatus,
       },
     ]);
+    // Artifically giving a delay of 2s
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
   }, [authStatus]);
 
   const handleLogout = async () => {
@@ -97,7 +71,11 @@ function Header() {
   };
 
   return (
-    <div className="w-full flex flex-row justify-between items-center gap-5 p-4 ">
+    <div
+      className={` ${
+        isLoading ? "opacity-0" : ""
+      } w-full flex flex-row justify-between items-center gap-5 p-4 transition-all duration-150`}
+    >
       {/* Logo */}
       <div className="min-w-[132px]">
         <Logo />

@@ -4,21 +4,18 @@ import { Link } from "react-router-dom";
 import { Loader } from "../components";
 
 function Home() {
-  // local state
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loading, setLoading] = useState(true);
-
   const authStatus = useSelector((state) => state.auth.loginStatus);
 
+  // local state
+  const [isLoggedIn, setIsLoggedIn] = useState(authStatus);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    (async () => {
-      try {
-        setIsLoggedIn(authStatus);
-      } catch (error) {
-      } finally {
-        setLoading(false);
-      }
-    })();
+    setIsLoggedIn(authStatus);
+    // Artifically giving a delay of 2s
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
   }, [authStatus]);
 
   if (loading) {
@@ -30,7 +27,7 @@ function Home() {
   }
 
   return (
-    <div className="w-full flex flex-col items-center justify-center gap-[4rem]">
+    <div className="transition-all duration-150 w-full flex flex-col items-center justify-center gap-[4rem]">
       {/* Welcome Text */}
       <div className="flex flex-col items-center justify-center leading-snug">
         <h2 className="font-light text-md-3">
