@@ -85,7 +85,7 @@ function EditExpense() {
 
         dispatch(updateExpenseToStore({ expense })); // modify the store
 
-        navigate("/dashboard"); // navigate to the dashboard
+        navigate("/all-expenses"); // navigate to the AllExpense Page
       }
     } catch (error) {
     } finally {
