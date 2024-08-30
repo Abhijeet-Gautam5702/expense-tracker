@@ -1,3 +1,5 @@
+![](https://i.postimg.cc/MTc0tzH0/Screenshot-2024-08-30-232128.png)
+
 # Expense Tracker
 
 This is a full-stack expense tracker web application built using React, Tailwind-CSS and Appwrite (for backend services).
@@ -24,7 +26,6 @@ The project is depoloyed on Vercel. Here's the [deployed link](https://expense-t
 
 ## Screenshots
 
-![](https://i.postimg.cc/MTc0tzH0/Screenshot-2024-08-30-232128.png)
 ![](https://i.postimg.cc/wj6hZX3j/Screenshot-2024-08-30-232310.png)
 ![](https://i.postimg.cc/CK5bLwGy/Screenshot-2024-08-30-232202.png)
 ![](https://i.postimg.cc/GpfG46K4/Screenshot-2024-08-30-232224.png)
