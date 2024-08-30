@@ -64,10 +64,25 @@ function AllExpenses() {
         <Loader />
       </div>
     );
+  } else if (expenseList.length === 0) {
+    return (
+      <div className="w-full flex flex-col justify-center items-center gap-3">
+        <h1 className="text-primary font-semibold text-sm-3">
+          You have not made any expenditures yet.
+        </h1>
+        <p className="font-regular text-sm-1">
+          Please register an expense and then come back again!
+        </p>
+      </div>
+    );
   } else if (errorMessage) {
-    <div className="w-full flex flex-row justify-center items-center">
-      <p className="text-danger text-sm-2 font-bold">{errorMessage}</p>
-    </div>;
+    return (
+      <div className="w-full flex flex-col justify-center items-center gap-3">
+        <p className="font-regular text-sm-2 text-danger ">
+          Please register an expense and then come back again!
+        </p>
+      </div>
+    );
   }
 
   return (
