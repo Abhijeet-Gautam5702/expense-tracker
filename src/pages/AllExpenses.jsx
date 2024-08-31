@@ -66,13 +66,12 @@ function AllExpenses() {
     );
   } else if (expenseList.length === 0) {
     return (
-      <div className="w-full flex flex-col justify-center items-center gap-3">
-        <h1 className="text-primary font-semibold text-sm-3">
-          You have not made any expenditures yet.
+      <div className="my-auto w-full flex flex-col justify-center items-center gap-3">
+        <h1 className="text-primary font-semibold text-sm-1 md:text-sm-3 md:text-center">
+          {" "}
+          You have not made any expenditures till now.{" "}
         </h1>
-        <p className="font-regular text-sm-1">
-          Please register an expense and then come back again!
-        </p>
+        <p className="font-regular  md:text-sm-1">Please register an expense and then come back again!</p>
       </div>
     );
   } else if (errorMessage) {
@@ -86,7 +85,7 @@ function AllExpenses() {
   }
 
   return (
-    <div className=" lg:-mt-5 w-full flex flex-col justify-start items-start gap-5 md:mt-2">
+    <div className=" lg:-mt-5 w-full flex flex-col justify-start items-start gap-5 mt-2">
       {/* Text Section */}
       <div className="leading-snug lg:mb-10 md:mb-5">
         <h1 className="text-primary font-medium  text-md-1 lg:text-lg-1 md:text-md-3">All Expenses</h1>

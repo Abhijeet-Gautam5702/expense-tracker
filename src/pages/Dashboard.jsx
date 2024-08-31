@@ -86,7 +86,7 @@ function Dashboard() {
   return (
     <div className="w-full flex flex-col justify-start items-start gap-5 mb-5 mt-5">
       {errorMessage ? (
-        <p className="w-full font-regular text-danger">{errorMessage}</p>
+        <p className=" w-full font-regular text-danger">{errorMessage}</p>
       ) : (
         <>
           {/* Welcome Text */}
