@@ -101,9 +101,9 @@ function EditExpense() {
     );
   }
   return (
-    <div className=" w-2/5 mx-auto flex flex-col items-center justify-start">
+    <div className=" lg:w-2/5 mx-auto flex flex-col items-center justify-start md:w-3/5 md:mb-3">
       {/* Headline */}
-      <h1 className="text-primary font-medium text-lg-1 mb-10">
+      <h1 className="text-primary font-medium lg:text-lg-1 lg:mb-10 md:text-md-3 md:mb-5 md:mt-3">
         Edit your expense
       </h1>
       {/* Form */}
@@ -145,7 +145,7 @@ function EditExpense() {
         <Button
           disabled={isSubmitting ? true : false}
           type="submit"
-          className="mt-4"
+          className=" lg:mt-4 md:mt-2"
           buttonText="Add expense"
         />
       </form>

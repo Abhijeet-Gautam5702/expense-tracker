@@ -18,11 +18,11 @@ function Input({ type = "text", label, placeholder, ...props }, ref) {
 
   return (
     <div className="w-full space-y-1">
-      <label htmlFor={id} className="text-primary font-regular text-sm-1">
+      <label htmlFor={id} className="text-primary font-regular lg:text-sm-1">
         {label}
       </label>
       <input
-        className=" w-full border-[1.5px] border-primary rounded-small px-5 py-3 outline-none"
+        className=" w-full border-[1.5px] border-primary rounded-small lg:px-5 py-3 outline-none md:px-3 placeholder:text-sm-0 md:text-sm-0"
         id={id}
         ref={ref}
         type={type}

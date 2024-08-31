@@ -66,13 +66,13 @@ function Login() {
   };
 
   return (
-    <div className="mb-10 w-2/5 mx-auto flex flex-col items-center justify-start">
+    <div className=" lg:mb-10  lg:w-2/5 mx-auto flex flex-col items-center justify-start md:w-3/5 md:mb-0">
       {loading === true ? (
         <Loader />
       ) : (
         <>
           {/* Headline */}
-          <h1 className="text-primary font-medium text-lg-1 mb-10">
+          <h1 className="text-primary font-medium text-lg-1 mb-10 md:mb-7">
             Login to your account
           </h1>
           {/* Form */}

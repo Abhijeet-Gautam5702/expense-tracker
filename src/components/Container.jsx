@@ -2,7 +2,7 @@ import React from "react";
 
 function Container({ children }) {
   return (
-    <div className="w-full flex-grow flex flex-col justify-center px-7 relative">
+    <div className="w-full flex-grow flex flex-col justify-center px-7 ">
       {children}
     </div>
   );

@@ -86,22 +86,22 @@ function AllExpenses() {
   }
 
   return (
-    <div className=" -mt-5 w-full flex flex-col justify-start items-start gap-5">
+    <div className=" lg:-mt-5 w-full flex flex-col justify-start items-start gap-5 md:mt-2">
       {/* Text Section */}
-      <div className="leading-snug mb-10">
-        <h1 className="text-primary font-medium text-lg-1">All Expenses</h1>
-        <p className="text-primary font-regular text-sm-1">
+      <div className="leading-snug lg:mb-10 md:mb-5">
+        <h1 className="text-primary font-medium lg:text-lg-1 md:text-md-3">All Expenses</h1>
+        <p className="text-primary font-regular lg:text-sm-1 ">
           Here are all your expenditures till now.
         </p>
       </div>
       {/* Table Headers */}
-      <div className="min-w-[75vw] flex flex-row justify-between items-center font-medium text-sm-1 p-4 rounded-med text-center shadow-md border-[1.5px] border-primary">
+      <div className="lg:min-w-[75vw] flex flex-row justify-between items-center lg:font-medium lg:text-sm-1 p-4 rounded-med text-center shadow-md border-[1.5px] border-primary md:font-semibold md:min-w-[80vw]">
         <p className="w-1/3 max-w-1/3">Category</p>
         <p className="w-1/3 max-w-1/3">Expense name</p>
         <p className="w-1/3 max-w-1/3">Amount($)</p>
       </div>
       {/* Section of list of expenses */}
-      <div className="mb-10 w-full flex flex-col justify-start items-start gap-3 font-medium text-sm-0 text-center">
+      <div className="lg:mb-10 w-full flex flex-col justify-start items-start gap-3 font-medium text-sm-0 text-center md:mb-5">
         {expenseList.map((item) => (
           <div
             key={item.$id}
@@ -109,22 +109,22 @@ function AllExpenses() {
           >
             <div
               key={item.$id}
-              className="w-[75vw] flex flex-row justify-between items-start border-b-[1px] border-primary p-3"
+              className="lg:w-[75vw] flex flex-row justify-between items-start border-b-[1px] border-primary p-3 md:w-[80vw]"
             >
               <p className="w-1/3 max-w-1/3">{item.category}</p>
               <p className="w-1/3 max-w-1/3">{item.name}</p>
               <p className="w-1/3 max-w-1/3"> {item.amount} </p>
               {/* Action button */}
             </div>
-            <div className="flex flex-row justify-start items-center gap-3">
+            <div className="flex flex-row justify-start items-center lg:gap-3 md:gap-1">
               <Link
                 to={`/edit-expense/${item.$id}`}
-                className="px-4 py-1 bg-accent border-[2px] border-accent text-background rounded-small font-medium hover:bg-accent/80 hover:border-accent/80 transition-all duration-100"
+                className="lg:px-4 py-1 bg-accent border-[2px] border-accent text-background rounded-small font-medium hover:bg-accent/80 hover:border-accent/80 transition-all duration-100 md:px-2 md:text-sm-0"
               >
                 Edit
               </Link>
               <div
-                className="px-4 py-1 bg-background text-danger border-[2px] border-danger font-medium rounded-small cursor-pointer hover:bg-danger hover:text-background transition-all duration-100"
+                className="lg:px-4 py-1 bg-background text-danger border-[2px] border-danger font-medium rounded-small cursor-pointer hover:bg-danger hover:text-background transition-all duration-100 md:px-2 md:text-sm-0"
                 onClick={() => {
                   handleDeleteExpense(item.$id);
                 }}

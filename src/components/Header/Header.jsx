@@ -79,14 +79,14 @@ function Header() {
     <div
       className={` ${
         isLoading ? "opacity-0" : ""
-      } w-full flex flex-row justify-between items-center gap-5 p-4 transition-all duration-150`}
+      } w-full flex flex-row justify-between items-center lg:gap-5 p-4 transition-all duration-150 md:gap-3 md:p-3`}
     >
       {/* Logo */}
       <div className="min-w-[132px]">
         <Logo />
       </div>
       {/* Nav Items */}
-      <div className="flex-grow flex flex-row justify-end items-center gap-3">
+      <div className="lg:flex-grow flex flex-row justify-end items-center lg:gap-3 md:gap-2">
         {navItems.map((item) => {
           if (item.active) {
             return (
@@ -95,10 +95,10 @@ function Header() {
                 to={item.path}
                 className={({ isActive }) => {
                   let styles =
-                    "text-sm-1 px-4 py-2 transition-all  duration-100 ";
+                    " lg:text-sm-1 lg:px-4 py-2 transition-all  duration-100 md:px-2 ";
 
                   if (isActive) {
-                    styles += "border-b-[3px] border-b-accent text-accent";
+                    styles += " border-b-[3px] border-b-accent text-accent";
                   } else {
                     styles += " text-primary bg-background hover:scale-110";
                   }
@@ -115,7 +115,7 @@ function Header() {
       {/* Logout Button */}
       {authStatus && (
         <div
-          className="px-4 py-2 text-sm-0 text-background bg-accent rounded-small cursor-pointer hover:bg-accent/90"
+          className=" lg:px-4 py-2  text-sm-0 text-background bg-accent rounded-small cursor-pointer hover:bg-accent/90 md:px-3"
           onClick={handleLogout}
         >
           Logout

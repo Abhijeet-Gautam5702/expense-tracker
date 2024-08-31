@@ -69,7 +69,7 @@ function Signup() {
   };
 
   return (
-    <div className=" w-2/5 mx-auto flex flex-col items-center justify-start">
+    <div className="  lg:w-2/5 mx-auto flex flex-col items-center justify-start md:w-3/5 md:mb-2">
       {loading === true ? (
         <Loader />
       ) : (

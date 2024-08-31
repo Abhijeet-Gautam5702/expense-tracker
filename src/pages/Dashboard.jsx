@@ -90,11 +90,11 @@ function Dashboard() {
       ) : (
         <>
           {/* Welcome Text */}
-          <div className="flex flex-col justify-start gap-3 items-start leading-snug">
-            <h1 className="text-lg-2 font-semibold">
+          <div className="flex flex-col justify-start lg:gap-3 items-start leading-snug md:gap-2 md:mt-1">
+            <h1 className=" lg:text-lg-2 font-semibold md:text-md-3">
               Welcome <span className="text-accent">{userData.name}</span>{" "}
             </h1>
-            <h2 className="text-sm-2 font-regular">
+            <h2 className=" lg:text-sm-2 font-regular md:text-sm-1">
               You have spent a total of{" "}
               <span className="text-accent font-semibold">
                 {`$ ${
@@ -107,11 +107,11 @@ function Dashboard() {
             </h2>
           </div>
           {/* Category Spends */}
-          <div className="w-full mt-14 flex flex-col justify-start items-start gap-2">
-            <h2 className="text-primary font-medium text-md-3">
+          <div className="w-full lg:mt-14 flex flex-col justify-start items-start gap-2 md:mt-8">
+            <h2 className="text-primary font-medium lg:text-md-3 md:text-md-1">
               Categorical Expenses
             </h2>
-            <div className="w-full mt-2 flex flex-row justify-start items-center gap-[2rem]">
+            <div className="w-full mt-2 flex flex-row flex-wrap justify-start items-center gap-[2rem] md:justify-between">
               {categories.map((category) => (
                 <CategoryCard
                   key={category.id}
