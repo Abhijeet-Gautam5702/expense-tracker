@@ -84,14 +84,14 @@ function Dashboard() {
   }
 
   return (
-    <div className="w-full flex flex-col justify-start items-start gap-5">
+    <div className="w-full flex flex-col justify-start items-start gap-5 mb-5 mt-5">
       {errorMessage ? (
         <p className="w-full font-regular text-danger">{errorMessage}</p>
       ) : (
         <>
           {/* Welcome Text */}
-          <div className="flex flex-col justify-start lg:gap-3 items-start leading-snug md:gap-2 md:mt-1">
-            <h1 className=" lg:text-lg-2 font-semibold md:text-md-3">
+          <div className=" mt-3 flex flex-col justify-start lg:gap-3 items-start leading-snug md:gap-2 md:mt-1">
+            <h1 className=" text-sm-3 lg:text-lg-2 font-semibold md:text-md-3">
               Welcome <span className="text-accent">{userData.name}</span>{" "}
             </h1>
             <h2 className=" lg:text-sm-2 font-regular md:text-sm-1">
@@ -107,11 +107,11 @@ function Dashboard() {
             </h2>
           </div>
           {/* Category Spends */}
-          <div className="w-full lg:mt-14 flex flex-col justify-start items-start gap-2 md:mt-8">
-            <h2 className="text-primary font-medium lg:text-md-3 md:text-md-1">
+          <div className=" w-full mt-5 lg:mt-14 flex flex-col justify-start items-start gap-2 md:mt-8">
+            <h2 className=" w-full text-center text-primary font-medium text-sm-1 lg:text-md-3 md:text-md-1 md:w-fit">
               Categorical Expenses
             </h2>
-            <div className="w-full mt-2 flex flex-row flex-wrap justify-start items-center gap-[2rem] md:justify-between">
+            <div className="w-full mt-2 flex flex-col flex-wrap md:flex-row md:flex-wrap lg:justify-start items-center gap-[2rem] md:justify-between px-7 md:px-0">
               {categories.map((category) => (
                 <CategoryCard
                   key={category.id}

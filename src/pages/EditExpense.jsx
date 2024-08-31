@@ -100,10 +100,11 @@ function EditExpense() {
       </div>
     );
   }
+
   return (
-    <div className=" lg:w-2/5 mx-auto flex flex-col items-center justify-start md:w-3/5 md:mb-3">
+    <div className=" lg:w-2/5 mb-3 mx-auto flex flex-col items-center justify-start md:w-3/5 md:mb-3">
       {/* Headline */}
-      <h1 className="text-primary font-medium lg:text-lg-1 lg:mb-10 md:text-md-3 md:mb-5 md:mt-3">
+      <h1 className="text-md-1 mt-3 mb-5 text-primary font-medium lg:text-lg-1 lg:mb-10 md:text-md-3 md:mb-5 md:mt-3">
         Edit your expense
       </h1>
       {/* Form */}

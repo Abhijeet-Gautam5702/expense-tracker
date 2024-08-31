@@ -22,7 +22,7 @@ function Input({ type = "text", label, placeholder, ...props }, ref) {
         {label}
       </label>
       <input
-        className=" w-full border-[1.5px] border-primary rounded-small lg:px-5 py-3 outline-none md:px-3 placeholder:text-sm-0 md:text-sm-0"
+        className="px-3 w-full border-[1.5px] border-primary rounded-small lg:px-5 py-3 outline-none md:px-3 placeholder:text-sm-0 md:text-sm-0"
         id={id}
         ref={ref}
         type={type}

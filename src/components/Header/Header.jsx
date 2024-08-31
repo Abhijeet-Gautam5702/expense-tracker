@@ -79,14 +79,16 @@ function Header() {
     <div
       className={` ${
         isLoading ? "opacity-0" : ""
-      } w-full flex flex-row justify-between items-center lg:gap-5 p-4 transition-all duration-150 md:gap-3 md:p-3`}
+      } w-full flex flex-row justify-between items-center lg:gap-5 p-4 pb-0 md:pb-4 transition-all duration-150 md:gap-3 md:p-3 flex-wrap relative border-b-[1px] border-b-tertiary`}
     >
       {/* Logo */}
-      <div className="min-w-[132px]">
-        <Logo />
+      <div className={`min-w-[132px] transition-all duration-150 w-full md:w-fit ${authStatus ? "w-fit" : ""}`}>
+        <Logo
+        className={authStatus ? "" : "text-center"}
+        />
       </div>
       {/* Nav Items */}
-      <div className="lg:flex-grow flex flex-row justify-end items-center lg:gap-3 md:gap-2">
+      <div className="mt-1 w-full md:w-fit lg:flex-grow flex flex-row md:justify-end justify-between items-center lg:gap-3 md:gap-2">
         {navItems.map((item) => {
           if (item.active) {
             return (
@@ -95,7 +97,7 @@ function Header() {
                 to={item.path}
                 className={({ isActive }) => {
                   let styles =
-                    " lg:text-sm-1 lg:px-4 py-2 transition-all  duration-100 md:px-2 ";
+                    " text-sm-0 lg:text-sm-1 lg:px-4 py-2 transition-all  duration-100 md:px-2 ";
 
                   if (isActive) {
                     styles += " border-b-[3px] border-b-accent text-accent";
@@ -115,7 +117,7 @@ function Header() {
       {/* Logout Button */}
       {authStatus && (
         <div
-          className=" lg:px-4 py-2  text-sm-0 text-background bg-accent rounded-small cursor-pointer hover:bg-accent/90 md:px-3"
+          className=" absolute top-4 right-3 px-4 md:relative md:top-0 md:right-0  lg:px-4 py-2 text-[10px]  md:text-sm-0 text-background bg-accent rounded-small cursor-pointer hover:bg-accent/90 md:px-3 transition-all duration-150"
           onClick={handleLogout}
         >
           Logout

@@ -4,9 +4,9 @@ import { Link, useParams } from "react-router-dom";
 function CategoryCard({ id, name, amount, path, ...props }) {
 
   return (
-    <div className="lg:min-w-[270px] flex flex-col justify-start items-stretch gap-4 rounded-large border-[1.5px] border-primary py-3 px-4 transition-all duration-100 hover:scale-105 cursor-default md:w-[215px]">
+    <div className=" w-[80vw] lg:min-w-[270px] flex flex-col justify-start items-stretch gap-4 rounded-large border-[1.5px] border-primary py-3 px-4 transition-all duration-100 hover:scale-105 cursor-default md:w-[215px]">
       {/* Category Title */}
-      <p className="w-full text-center font-regular text-md-1 text-primary md:text-sm-1">
+      <p className="md:w-full text-sm-1 text-center font-regular lg:text-md-1 text-primary md:text-sm-1">
         {name}
       </p>
       {/* Total Category Spend */}

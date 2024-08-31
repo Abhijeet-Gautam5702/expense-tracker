@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <div className="w-full sticky bottom-0 p-3 lg:text-[13px] bg-primary text-background  md:text-[10px]">
+    <div className="w-full sticky bottom-0 p-3 lg:text-[13px] bg-primary text-background  text-[10px]">
       <p className="text-center">
         Made with love by{" "}
         <a

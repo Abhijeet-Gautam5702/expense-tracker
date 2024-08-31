@@ -27,7 +27,7 @@ function Home() {
   }
 
   return (
-    <div className="transition-all duration-150 w-full flex flex-col items-center justify-center lg:gap-[4rem] md:gap-[2rem]">
+    <div className=" my-auto transition-all duration-150 w-full flex flex-col items-center justify-center lg:gap-[4rem] md:gap-[2rem]">
       {/* Welcome Text */}
       <div className="flex flex-col items-center justify-center leading-snug">
         <h2 className="font-light lg:text-md-3 md:text-md-1">
